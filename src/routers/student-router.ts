@@ -1,7 +1,7 @@
 import express, { response } from 'express';
 import { userInfo } from 'os';
 
-export const studentRouter = express.Router();
+export const studentRouter = express.Router();//create + export express router
 
 interface student{
     id:number;
@@ -9,7 +9,6 @@ interface student{
     lastName: string;
     major: string;
 }
-//initilize our "database"
 /** dummy stuent object
  * {
     "id": 1,
@@ -18,6 +17,8 @@ interface student{
     "major": "Computer Science"
 }
  */
+
+ //initilize our "database"
 let students: student[] = []
 
 /*This get requests returns the entire student DB */
@@ -105,4 +106,3 @@ studentRouter.delete('/:id', (request, response, next)=>{
     const student = students.splice(studentIdx, 1)[0];//removes from database
     response.json(student);
 });
-//export default studentMiddleware
