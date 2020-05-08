@@ -4,6 +4,7 @@ import { studentRouter } from './routers/student-router';
 import { instructorRouter } from './routers/instructor-router';
 import { courseRouter } from './routers/course-router';
 import { classRouter } from './routers/class-router';
+import { db } from './daos/db';
 
 const app = express();
 
@@ -15,13 +16,11 @@ app.use(bodyParser.json());
 
 
 app.use((request, response, next) => {
-    //the express app is open and in middleware2
+    // the express app is open and in middleware2
     console.log('Hello world');
     next();
 })
-/*array datastucture declarations!!
-    some added sample data as well
-*/
+
 
 
 
@@ -35,7 +34,12 @@ app.use('/class',classRouter);
 
 
 
-
+process.on('unhandledRejection',()=>{
+    
+    db.end().then(() => {
+        console.log('Database pool closed');
+    });
+})
 // starts the express app
 
 app.listen(port, () => {

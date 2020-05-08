@@ -1,27 +1,20 @@
 import express from 'express';
+import * as instructorService from '../services/instructor-services';
+
+import { Instructor } from '../models/instructor';
 
 export const instructorRouter = express.Router();
 
-let instructor = [{
-    firstName: 'Tim',
-    lastName: 'Richards',
-    department: 'Computer Science',
-    FIDnumber: 1,
-}]
 
 
-instructorRouter.get('', (request, response, next) => {
-    console.log('Request received - processing at app.student.get');
-    response.json(instructor);
-    next();
-})
 
-instructorRouter.post('', (request, response, next) => {
-    const body = request.body;
-    if (body) {
-        instructor.push(body);
-    }
-    console.log('Request received - processing at app.student.post');
-    response.send('Processed by app.post');
-    next();
+instructorRouter.get('', (request, response , next) => {
+    console.log('inside student')
+    instructorService.getAllInstructors().then(instructor=>{
+        response.json(instructor);
+        next();
+    }).catch(err => {
+        console.log(err);
+        response.sendStatus(500);
+    })
 })

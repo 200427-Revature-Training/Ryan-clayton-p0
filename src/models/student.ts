@@ -4,9 +4,9 @@ export class Student{
     lastName: string;
     major: string;
 
-    static from(obj: StudentTable){
+    static from(obj: StudentRow){
         const student = new Student(
-            obj.id, obj.first_Name, obj.last_Name, obj.major
+            obj.sid, obj.first_name, obj.last_name, obj.major
         );
         return student
     }
@@ -18,9 +18,9 @@ export class Student{
     }
 
 }
-interface StudentTable{
-    id:number;
-    first_Name: string;
-    last_Name: string;
+export interface StudentRow{
+    sid:number;
+    first_name: string;
+    last_name: string;
     major: string;
 }
