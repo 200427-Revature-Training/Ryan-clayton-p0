@@ -18,8 +18,13 @@ export function getInstructorByID(id: number):Promise<Instructor>{
 
 }
 export function saveInstructor(instructor: any):Promise<Instructor>{
-    const sql = `insert into instructors (first_name,last_name,major) values($1,$2,$3) returning *`;
-    return db.query<InstructorRow>(sql,[instructor.first_name,instructor.last_name,instructor.major])
+    const sql = `insert into instructors (first_name,last_name,department) values($1,$2,$3) returning *`;
+    console.log(instructor);
+    return db.query<InstructorRow>(sql,[instructor.firstName,instructor.lastName,instructor.department])
     .then(result => result.rows.map(r=> Instructor.from(r))[0]);
-
 }
+export function patchInstructor(instructor:any):Promise<Instructor>{
+    const sql = `Update instructors set first_name = coalesce($1, first_name),
+     last_name = coalesce($2,last_name), department = coalesce($3,department) where iid = $4 returning *`;
+     return db.query<InstructorRow>(sql,[instructor.firstName,instructor.lastName,instructor.department,instructor.id])
+     .then(result => result.rows.map(r=> Instructor.from(r))[0]);}

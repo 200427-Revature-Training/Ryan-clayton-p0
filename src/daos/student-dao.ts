@@ -18,7 +18,7 @@ export function getStudentByID(id: number):Promise<Student>{
 }
 export function saveStudent(student: any):Promise<Student>{
     const sql = `insert into students (first_name,last_name,major) values($1,$2,$3) returning *`;
-    return db.query<StudentRow>(sql,[student.first_name,student.last_name,student.major])
+    return db.query<StudentRow>(sql,[student.firstName,student.lastName,student.major])
         .then(result => result.rows.map(r=> Student.from(r))[0]);
 
 }

@@ -55,9 +55,9 @@ studentRouter.patch('',(request,response,next)=>{
         response.json(newStudent);
         next();
     }).catch(err=>{
-    console.log(err);
-    response.sendStatus(500);
-    next();
-});
+        console.log(err);
+        response.sendStatus(500);
+        next();
+    });
 });
 

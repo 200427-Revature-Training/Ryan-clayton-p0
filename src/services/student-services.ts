@@ -1,6 +1,5 @@
 import { Student } from "../models/student";
 import * as studentDao from '../daos/student-dao';
-import { promises } from "dns";
 
 export function getAllStudents():Promise<Student[]>{
     return studentDao.getAllStudents();
