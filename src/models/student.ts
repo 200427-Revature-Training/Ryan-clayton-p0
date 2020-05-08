@@ -1,7 +1,7 @@
 export class Student{
     id:number;
-    first_name: string;
-    last_name: string;
+    firstName: string;
+    lastName: string;
     major: string;
 
     static from(obj: StudentRow){
@@ -12,8 +12,8 @@ export class Student{
     }
     constructor(id: number, firstName: string, lastName:string, major: string){
         this.id = id;
-        this.first_name=firstName;
-        this.last_name=lastName;
+        this.firstName=firstName;
+        this.lastName=lastName;
         this.major=major;
     }
 

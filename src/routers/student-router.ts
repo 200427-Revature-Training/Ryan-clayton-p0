@@ -1,6 +1,5 @@
 import express, { response } from 'express';
 import * as studentService from '../services/student-services';
-import {Student} from '../models/student'
 
 export const studentRouter = express.Router();//create + export express router
 
@@ -16,7 +15,7 @@ studentRouter.get('', (request, response , next) => {
         console.log(err);
         response.sendStatus(500);
     })
-})
+});
 /*select student where id = id */
 studentRouter.get('/:id',(request, response ,next)=>{
     const id = +request.params.id;
@@ -33,13 +32,11 @@ studentRouter.get('/:id',(request, response ,next)=>{
         next();
     });
    
-})
+});
 /*create new student */
 studentRouter.post('', (request, response, next) => {
     const student = request.body;
     studentService.saveStudent(student).then(newStudent=>{
-
-    
         response.status(201);
         response.json(newStudent);
         next();
@@ -49,5 +46,18 @@ studentRouter.post('', (request, response, next) => {
         next();
     });
 
-})
+});
+
+studentRouter.patch('',(request,response,next)=>{
+    const student = request.body;
+    studentService.patchStudent(student).then(newStudent =>{
+        response.status(201);
+        response.json(newStudent);
+        next();
+    }).catch(err=>{
+    console.log(err);
+    response.sendStatus(500);
+    next();
+});
+});
 
