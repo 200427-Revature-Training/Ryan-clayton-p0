@@ -4,15 +4,16 @@ import * as studentDao from '../daos/student-dao';
 export function getAllStudents():Promise<Student[]>{
     return studentDao.getAllStudents();
 }
-export function getStudentByID(id :number):Student{
+export function getStudentByID(id :number):Promise<Student>{
     return studentDao.getStudentByID(id);
 }
-export function saveStudent(student):Student{
-    const newStudent = new Student(undefined, student.firstName, student.lastName, student.major);
-    if (student.firstName&&student.lastName){
+export function saveStudent(student):Promise<Student>{
+    const newStudent = new Student(undefined, student.first_name, student.last_name, student.major);
+    if (newStudent.first_name&&newStudent.last_name){
         return studentDao.saveStudent(newStudent);
     }
     else{
-        //todo
+        console.log("invalid person");
+        return new Promise((resolve, reject)=> reject(422));
     }
 }

@@ -20,20 +20,34 @@ studentRouter.get('', (request, response , next) => {
 /*select student where id = id */
 studentRouter.get('/:id',(request, response ,next)=>{
     const id = +request.params.id;
-    const student:Student = studentService.getStudentByID(id);
-    if (!student){// student id doesnt exist in DB
-        response.sendStatus(404);
-    }else{// returns the student
-        response.json(student);
-    }
-    next();
+    studentService.getStudentByID(id).then(student =>{
+        if (!student){// student id doesnt exist in DB
+            response.sendStatus(404);
+        }else{// returns the student
+            response.json(student);
+        }
+        next();
+    }).catch(err=>{
+        console.log(err);
+        response.sendStatus(500);
+        next();
+    });
+   
 })
 /*create new student */
 studentRouter.post('', (request, response, next) => {
     const student = request.body;
-    const createdStudent = studentService.saveStudent(student)
-    response.status(201);
-    response.json(createdStudent);
-    next();
+    studentService.saveStudent(student).then(newStudent=>{
+
+    
+        response.status(201);
+        response.json(newStudent);
+        next();
+    }).catch(err=>{
+        console.log(err);
+        response.sendStatus(500);
+        next();
+    });
+
 })
 

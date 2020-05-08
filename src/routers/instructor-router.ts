@@ -9,7 +9,6 @@ export const instructorRouter = express.Router();
 
 
 instructorRouter.get('', (request, response , next) => {
-    console.log('inside student')
     instructorService.getAllInstructors().then(instructor=>{
         response.json(instructor);
         next();
