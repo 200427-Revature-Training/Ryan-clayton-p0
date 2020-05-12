@@ -60,4 +60,18 @@ studentRouter.patch('',(request,response,next)=>{
         next();
     });
 });
-
+studentRouter.get('/classes/:id',(request, response ,next)=>{
+    const id = +request.params.id;
+    studentService.getClassesByStudent(id).then(student =>{
+        if (!student){// student id doesnt exist in DB
+            response.sendStatus(404);
+        }else{// returns the student
+            response.json(student);
+        }
+        next();
+    }).catch(err=>{
+        console.log(err);
+        response.sendStatus(500);
+        next();
+    });
+});

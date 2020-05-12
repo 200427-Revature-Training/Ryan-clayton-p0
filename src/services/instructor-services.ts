@@ -1,5 +1,7 @@
 import { Instructor } from "../models/instructor";
 import * as instructorDao from '../daos/instructor-dao';
+import { InstructorClasses } from "../models/instructor-classes";
+
 
 export function getAllInstructors():Promise<Instructor[]>{
     return instructorDao.getAllInstructors();
@@ -25,4 +27,7 @@ export function patchInstructor(instructor:any):Promise<Instructor>{
         throw new Error('400');
     }
     return instructorDao.patchInstructor(newInstructor);
+}
+export function getClassesByInstructor(id: number):Promise<InstructorClasses[]>{
+    return instructorDao.getClassesbyInstructor(id);
 }

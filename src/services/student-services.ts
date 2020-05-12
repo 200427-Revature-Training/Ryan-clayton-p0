@@ -1,5 +1,6 @@
 import { Student } from "../models/student";
 import * as studentDao from '../daos/student-dao';
+import { Classes } from "../models/student-classes";
 
 export function getAllStudents():Promise<Student[]>{
     return studentDao.getAllStudents();
@@ -25,4 +26,7 @@ export function patchStudent(student:any):Promise<Student>{
         throw new Error('400');
     }
     return studentDao.patchStudent(newStudent);
+}
+export function getClassesByStudent(id :number):Promise<Classes[]>{
+    return studentDao.getClassesbyStudent(id);
 }

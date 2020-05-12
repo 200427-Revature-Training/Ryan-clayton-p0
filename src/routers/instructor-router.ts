@@ -1,7 +1,6 @@
 import express from 'express';
 import * as instructorService from '../services/instructor-services';
 
-import { Instructor } from '../models/instructor';
 
 export const instructorRouter = express.Router();
 
@@ -53,6 +52,22 @@ instructorRouter.patch('',(request,response,next)=>{
     instructorService.patchInstructor(instructor).then(newInstructor =>{
         response.status(201);
         response.json(newInstructor);
+        next();
+    }).catch(err=>{
+        console.log(err);
+        response.sendStatus(500);
+        next();
+    });
+});
+
+instructorRouter.get('/classes/:id',(request, response ,next)=>{
+    const id = +request.params.id;
+    instructorService.getClassesByInstructor(id).then(student =>{
+        if (!student){// instructor id doesnt exist in DB
+            response.sendStatus(404);
+        }else{// returns the instructor
+            response.json(student);
+        }
         next();
     }).catch(err=>{
         console.log(err);

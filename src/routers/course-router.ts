@@ -28,7 +28,6 @@ courseRouter.get('/:id',(request, response ,next)=>{
         response.sendStatus(500);
         next();
     });
-   
 });
 /*create new course */
 courseRouter.post('', (request, response, next) => {
@@ -59,3 +58,18 @@ courseRouter.patch('',(request,response,next)=>{
     });
 });
 
+courseRouter.get('/list/:id',(request, response ,next)=>{
+    const id = +request.params.id;
+    courseService.getCourseList(id).then(course =>{
+        if (!course){// course id doesnt exist in DB
+            response.sendStatus(404);
+        }else{// returns the course
+            response.json(course);
+        }
+        next();
+    }).catch(err=>{
+        console.log(err);
+        response.sendStatus(500);
+        next();
+    });
+});

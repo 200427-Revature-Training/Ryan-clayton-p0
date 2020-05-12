@@ -1,6 +1,7 @@
 
 import {Course} from '../models/course'
 import * as CourseDao from '../daos/course-dao';
+import {People} from '../models/people'
 
 export function getAllCourses():Promise<Course[]>{
     return CourseDao.getAllCourses();
@@ -27,4 +28,7 @@ export function patchCourse(course:any):Promise<Course>{
         throw new Error('400');
     }
     return CourseDao.patchCourse(newCourse);
+}
+export function getCourseList(id :number):Promise<People[]>{
+    return CourseDao.getClassListByID(id);
 }

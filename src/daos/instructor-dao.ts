@@ -1,5 +1,6 @@
 import { db } from "./db";
 import { Instructor, InstructorRow } from "../models/instructor";
+import { InstructorClasses,InstructorClassesRow } from "../models/instructor-classes";
 
 
 
@@ -28,3 +29,15 @@ export function patchInstructor(instructor:any):Promise<Instructor>{
      last_name = coalesce($2,last_name), department = coalesce($3,department) where iid = $4 returning *`;
      return db.query<InstructorRow>(sql,[instructor.firstName,instructor.lastName,instructor.department,instructor.id])
      .then(result => result.rows.map(r=> Instructor.from(r))[0]);}
+
+export function getClassesbyInstructor(id:number):Promise<InstructorClasses[]>{
+    const sql = 
+    `select courses.course_name, count(*) as Number_of_students
+    from classes inner join courses on classes.cid = courses.cid 
+    inner join instructors on instructors.iid = classes.iid 
+    inner join students on students.sid = classes.sid
+    where instructors.iid = $1 group by courses.cid;`;
+    return db.query<InstructorClassesRow>(sql, [id]).then(result => {
+        return result.rows.map(row => InstructorClasses.from(row));
+    });
+}

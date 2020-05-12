@@ -1,5 +1,6 @@
 import { db } from "./db";
 import { Student, StudentRow } from "../models/student";
+import { Classes,ClassesRow } from "../models/student-classes";
 
 
 
@@ -27,3 +28,17 @@ export function patchStudent(student:any):Promise<Student>{
      last_name = coalesce($2,last_name), major = coalesce($3,major) where sid = $4 returning *`;
      return db.query<StudentRow>(sql,[student.firstName,student.lastName,student.major,student.id])
         .then(result => result.rows.map(r=> Student.from(r))[0]);}
+
+export function getClassesbyStudent(id:number):Promise<Classes[]>{
+    const sql = 
+    `select courses.description, instructors.department,
+    instructors.first_name as instructor_first_name, instructors.last_name as instructor_last_name,
+    courses.course_name 
+    from classes inner join courses on classes.cid = courses.cid 
+    inner join instructors on instructors.iid = classes.iid 
+    inner join students on students.sid = classes.sid
+    where students.sid = $1;`;
+    return db.query<ClassesRow>(sql, [id]).then(result => {
+        return result.rows.map(row => Classes.from(row));
+    });
+}
