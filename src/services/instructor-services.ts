@@ -31,3 +31,6 @@ export function patchInstructor(instructor:any):Promise<Instructor>{
 export function getClassesByInstructor(id: number):Promise<InstructorClasses[]>{
     return instructorDao.getClassesbyInstructor(id);
 }
+export function delInstructor(id:number):Promise<Instructor>{
+    return instructorDao.delInstructor(id);
+}

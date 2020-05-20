@@ -19,11 +19,11 @@ instructorRouter.get('', (request, response , next) => {
 
 instructorRouter.get('/:id',(request, response ,next)=>{
     const id = +request.params.id;
-    instructorService.getInstructorByID(id).then(student =>{
-        if (!student){// student id doesnt exist in DB
+    instructorService.getInstructorByID(id).then(instructor =>{
+        if (!instructor){// instructor id doesnt exist in DB
             response.sendStatus(404);
-        }else{// returns the student
-            response.json(student);
+        }else{// returns the instructor
+            response.json(instructor);
         }
         next();
     }).catch(err=>{
@@ -62,12 +62,24 @@ instructorRouter.patch('',(request,response,next)=>{
 
 instructorRouter.get('/classes/:id',(request, response ,next)=>{
     const id = +request.params.id;
-    instructorService.getClassesByInstructor(id).then(student =>{
-        if (!student){// instructor id doesnt exist in DB
+    instructorService.getClassesByInstructor(id).then(instructor =>{
+        if (!instructor){// instructor id doesnt exist in DB
             response.sendStatus(404);
         }else{// returns the instructor
-            response.json(student);
+            response.json(instructor);
         }
+        next();
+    }).catch(err=>{
+        console.log(err);
+        response.sendStatus(500);
+        next();
+    });
+});
+instructorRouter.delete('/:id',(request,response,next)=>{
+    const id = +request.params.id;
+    instructorService.delInstructor(id).then(newInstructor =>{
+        response.status(201);
+        response.json(newInstructor);
         next();
     }).catch(err=>{
         console.log(err);

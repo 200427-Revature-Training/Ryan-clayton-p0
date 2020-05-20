@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export class People{
     firstName: string;
     lastName: string;

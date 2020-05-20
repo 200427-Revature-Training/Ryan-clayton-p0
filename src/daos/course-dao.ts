@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { db } from "./db";
 import { Course, CourseRow } from "../models/course";
 import { People, peopleList} from "../models/people";
@@ -31,9 +32,9 @@ export function patchCourse(course:any):Promise<Course>{
         .then(result => result.rows.map(r=> Course.from(r))[0]);}
 
 export function getCourseListByID(id:number):Promise<People[]>{
-    const sql = `select students.first_name , students.last_name
+    const sql = `select courses.first_name , courses.last_name
     from classes inner join courses on classes.cid = courses.cid 
-    inner join students on students.sid = classes.sid
+    inner join courses on courses.sid = classes.sid
     where classes.cid = $1
     union
     select instructors.first_name , instructors.last_name
@@ -47,19 +48,29 @@ export function getCourseListByID(id:number):Promise<People[]>{
 }
 
 export function addClass(sid:number,iid:number,cid:number):Promise<Classroom>{
-    const sql = `insert into classes (cid,iid,sid) values($1,$2,$3)`
+    const sql = `insert into classes (cid,iid,sid) values($1,$2,$3) returning *`
     return db.query<ClassroomRow>(sql,[cid,iid,sid])
         .then(result => result.rows.map(r=> Classroom.from(r))[0]);
     }
 
 export function getAllClasses(): Promise<ClassList[]>{
-    const sql = `select  concat( students.first_name,' ' ,students.last_name) as student_name,
+    const sql = `select  concat( courses.first_name,' ' ,courses.last_name) as course_name,
     concat(instructors.first_name,' ', instructors.last_name) as instructor_name,
     courses.course_name, courses.description 
     from classes inner join courses on classes.cid = courses.cid 
     inner join instructors on instructors.iid = classes.iid 
-    inner join students on students.sid = classes.sid;`;
+    inner join courses on courses.sid = classes.sid;`;
     return db.query<ClassListRow>(sql, []).then(result => {
         return result.rows.map(row => ClassList.from(row));
     });
+}
+export function delCourse(id:number):Promise<Course>{
+    const sql = `delete from courses where cid = $1 returning *`;
+    return db.query<CourseRow>(sql,[id])
+        .then(result => result.rows.map(r=> Course.from(r))[0]);
+}
+export function delClass(sid:number,iid:number,cid:number):Promise<Classroom>{
+    const sql = `delete from classes where cid = $1 and iid = $2 and sid = $3 returning *`
+    return db.query<ClassroomRow>(sql,[cid,iid,sid])
+        .then(result => result.rows.map(r=> Classroom.from(r))[0]);
 }

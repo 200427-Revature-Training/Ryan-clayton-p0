@@ -96,3 +96,27 @@ courseRouter.get('/classlist/', (request, response , next) => {
         response.sendStatus(500);
     })
 });
+courseRouter.delete('/delete/:id',(request,response,next)=>{
+    const id = +request.params.id;
+    courseService.delCourse(id).then(newCourse =>{
+        response.status(201);
+        response.json(newCourse);
+        next();
+    }).catch(err=>{
+        console.log(err);
+        response.sendStatus(500);
+        next();
+    });
+});
+courseRouter.delete('/class/delete',(request,response,next)=>{
+    const classroom = request.body;
+    courseService.delClass(classroom).then(newCourse =>{
+        response.status(201);
+        response.json(newCourse);
+        next();
+    }).catch(err=>{
+        console.log(err);
+        response.sendStatus(500);
+        next();
+    });
+});

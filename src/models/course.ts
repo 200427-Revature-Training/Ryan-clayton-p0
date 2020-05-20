@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export class Course{
     id:number;
     courseName: string;

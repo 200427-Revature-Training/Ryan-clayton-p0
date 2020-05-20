@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export class InstructorClasses{
     numberOfStudents:number;
     coursename: string;

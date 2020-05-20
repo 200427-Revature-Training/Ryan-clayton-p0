@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">28% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/40</span>
+                <span class='fraction'>14/50</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/21</span>
+                <span class='fraction'>0/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36.36% </span>
+                <span class="strong">34.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/33</span>
+                <span class='fraction'>14/41</span>
             </div>
         
             
@@ -121,7 +121,17 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -185,6 +195,16 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { db } from "./db";
 import { Course, CourseRow } from "../models/course";
 import { People, peopleList} from "../models/people";
@@ -218,9 +238,9 @@ export function <span class="fstat-no" title="function not covered" >patchCourse
         .then(<span class="fstat-no" title="function not covered" >result </span>=&gt; <span class="cstat-no" title="statement not covered" >result.rows.map(<span class="fstat-no" title="function not covered" >r=</span>&gt; <span class="cstat-no" title="statement not covered" >Course.from(r))</span>[0])</span>;}
 &nbsp;
 export function <span class="fstat-no" title="function not covered" >getCourseListByID(</span>id:number):Promise&lt;People[]&gt;{
-    const sql = <span class="cstat-no" title="statement not covered" >`select students.first_name , students.last_name</span>
+    const sql = <span class="cstat-no" title="statement not covered" >`select courses.first_name , courses.last_name</span>
     from classes inner join courses on classes.cid = courses.cid 
-    inner join students on students.sid = classes.sid
+    inner join courses on courses.sid = classes.sid
     where classes.cid = $1
     union
     select instructors.first_name , instructors.last_name
@@ -240,15 +260,25 @@ export function <span class="fstat-no" title="function not covered" >addClass(</
     }
 &nbsp;
 export function <span class="fstat-no" title="function not covered" >getAllClasses(</span>): Promise&lt;ClassList[]&gt;{
-    const sql = <span class="cstat-no" title="statement not covered" >`select  concat( students.first_name,' ' ,students.last_name) as student_name,</span>
+    const sql = <span class="cstat-no" title="statement not covered" >`select  concat( courses.first_name,' ' ,courses.last_name) as course_name,</span>
     concat(instructors.first_name,' ', instructors.last_name) as instructor_name,
     courses.course_name, courses.description 
     from classes inner join courses on classes.cid = courses.cid 
     inner join instructors on instructors.iid = classes.iid 
-    inner join students on students.sid = classes.sid;`;
+    inner join courses on courses.sid = classes.sid;`;
 <span class="cstat-no" title="statement not covered" >    return db.query&lt;ClassListRow&gt;(sql, []).then(<span class="fstat-no" title="function not covered" >result </span>=&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        return result.rows.map(<span class="fstat-no" title="function not covered" >row </span>=&gt; <span class="cstat-no" title="statement not covered" >ClassList.from(row))</span>;</span>
     });
+}
+export function <span class="fstat-no" title="function not covered" >delCourse(</span>id:number):Promise&lt;Course&gt;{
+    const sql = <span class="cstat-no" title="statement not covered" >`delete from courses where cid = $1 returning *`;</span>
+<span class="cstat-no" title="statement not covered" >    return db.query&lt;CourseRow&gt;(sql,[id])</span>
+        .then(<span class="fstat-no" title="function not covered" >result </span>=&gt; <span class="cstat-no" title="statement not covered" >result.rows.map(<span class="fstat-no" title="function not covered" >r=</span>&gt; <span class="cstat-no" title="statement not covered" >Course.from(r))</span>[0])</span>;
+}
+export function <span class="fstat-no" title="function not covered" >delClass(</span>sid:number,iid:number,cid:number):Promise&lt;Classroom&gt;{
+    const sql = <span class="cstat-no" title="statement not covered" >`delete from classes where cid = $1 and iid = $2 and sid = $3 returning *`</span>
+<span class="cstat-no" title="statement not covered" >    return db.query&lt;ClassroomRow&gt;(sql,[cid,iid,sid])</span>
+        .then(<span class="fstat-no" title="function not covered" >result </span>=&gt; <span class="cstat-no" title="statement not covered" >result.rows.map(<span class="fstat-no" title="function not covered" >r=</span>&gt; <span class="cstat-no" title="statement not covered" >Classroom.from(r))</span>[0])</span>;
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -256,7 +286,7 @@ export function <span class="fstat-no" title="function not covered" >getAllClass
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue May 19 2020 19:44:25 GMT-0400 (Eastern Daylight Time)
+                at Wed May 20 2020 10:17:13 GMT-0400 (Eastern Daylight Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

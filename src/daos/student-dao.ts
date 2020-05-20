@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { db } from "./db";
 import { Student, StudentRow } from "../models/student";
 import { Classes,ClassesRow } from "../models/student-classes";
@@ -41,4 +42,9 @@ export function getClassesbyStudent(id:number):Promise<Classes[]>{
     return db.query<ClassesRow>(sql, [id]).then(result => {
         return result.rows.map(row => Classes.from(row));
     });
+}
+export function delStudent(id:number):Promise<Student>{
+    const sql = `delete from students where sid = $1 returning *`;
+    return db.query<StudentRow>(sql,[id])
+        .then(result => result.rows.map(r=> Student.from(r))[0]);
 }

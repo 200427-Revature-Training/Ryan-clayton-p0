@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export class Classes{
     coursename: string;
     description: string;

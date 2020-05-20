@@ -170,3 +170,51 @@ describe('POST /course/enroll', () => {
             .expect(500);
     });
 });
+describe('delete /course', () => {
+    test('Successful creation should return 201 status', async () => {
+        mockCourseService.delCourse.mockImplementation(async () => ({}));
+
+        await request(app)
+            .delete('/course/3')
+            .expect(201)
+            .expect('content-type', 'application/json; charset=utf-8')
+    });
+
+    test('Should return 500 when encountering an error', async () => {
+        mockCourseService.delCourse.mockImplementation(async () => {throw new Error()});
+
+
+
+        await request(app)
+            .delete('/course/nan')
+            .expect(500);
+    });
+});
+describe('delete /class', () => {
+    test('Successful creation should return 201 status', async () => {
+        mockCourseService.delClass.mockImplementation(async () => ({}));
+        const payload = {
+            sid: 1,
+            iid: 1,
+            cid: 1
+        };
+        await request(app)
+            .delete('/course/class/delete')
+            .send(payload)
+            .expect(201)
+            .expect('content-type', 'application/json; charset=utf-8')
+    });
+
+    test('Should return 500 when encountering an error', async () => {
+        mockCourseService.delClass.mockImplementation(async () => {throw new Error()});
+        const payload = {
+            sid: 'nan',
+            iid: 'nan',
+            cid: 'nan'
+        };
+        await request(app)
+            .delete('/course/class/delete')
+            .send(payload)
+            .expect(500)
+    });
+});

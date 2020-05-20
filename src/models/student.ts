@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export class Student{
     id:number;
     firstName: string;

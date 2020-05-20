@@ -99,4 +99,15 @@ studentRouter.get('/classes/:id', async (request, response, next) => {
     }
     next();
 });
-
+studentRouter.delete('/:id',(request,response,next)=>{
+    const id = +request.params.id;
+    studentService.delStudent(id).then(newStudent =>{
+        response.status(201);
+        response.json(newStudent);
+        next();
+    }).catch(err=>{
+        console.log(err);
+        response.sendStatus(500);
+        next();
+    });
+});

@@ -138,3 +138,23 @@ describe('GET student/classes/:id', () => {
             .expect(500)
     })
 })
+describe('delete /student', () => {
+    test('Successful creation should return 201 status', async () => {
+        mockStudentService.delStudent.mockImplementation(async () => ({}));
+
+        await request(app)
+            .delete('/student/1')
+            .expect(201)
+            .expect('content-type', 'application/json; charset=utf-8')
+    });
+
+    test('Should return 500 when encountering an error', async () => {
+        mockStudentService.delStudent.mockImplementation(async () => {throw new Error()});
+
+
+
+        await request(app)
+            .delete('/student/nan')
+            .expect(500);
+    });
+});

@@ -1,189 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1589931865694" clover="3.2.0">
-  <project timestamp="1589931865694" name="All files">
-    <metrics statements="360" coveredstatements="240" conditionals="35" coveredconditionals="35" methods="138" coveredmethods="55" elements="533" coveredelements="330" complexity="0" loc="360" ncloc="360" packages="4" files="18" classes="18"/>
+<coverage generated="1589986604378" clover="3.2.0">
+  <project timestamp="1589986604378" name="All files">
+    <metrics statements="272" coveredstatements="223" conditionals="40" coveredconditionals="35" methods="88" coveredmethods="61" elements="400" coveredelements="319" complexity="0" loc="272" ncloc="272" packages="3" files="7" classes="7"/>
     <package name="daos">
-      <metrics statements="83" coveredstatements="30" conditionals="0" coveredconditionals="0" methods="51" coveredmethods="0"/>
-      <file name="course-dao.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\daos\course-dao.ts">
-        <metrics statements="33" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="21" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="55" count="2" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-      </file>
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="db.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\daos\db.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="6" type="stmt"/>
         <line num="3" count="6" type="stmt"/>
       </file>
-      <file name="instructor-dao.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\daos\instructor-dao.ts">
-        <metrics statements="25" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-      </file>
-      <file name="student-dao.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\daos\student-dao.ts">
-        <metrics statements="23" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="models">
-      <metrics statements="53" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="3"/>
-      <file name="class.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\models\class.ts">
-        <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-      </file>
-      <file name="classList.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\models\classList.ts">
-        <metrics statements="8" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-      </file>
-      <file name="course.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\models\course.ts">
-        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="14" count="8" type="stmt"/>
-        <line num="15" count="8" type="stmt"/>
-        <line num="16" count="8" type="stmt"/>
-        <line num="17" count="8" type="stmt"/>
-      </file>
-      <file name="instructor-classes.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\models\instructor-classes.ts">
-        <metrics statements="5" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-      </file>
-      <file name="instructor.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\models\instructor.ts">
-        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="14" count="8" type="stmt"/>
-        <line num="15" count="8" type="stmt"/>
-        <line num="16" count="8" type="stmt"/>
-        <line num="17" count="8" type="stmt"/>
-      </file>
-      <file name="people.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\models\people.ts">
-        <metrics statements="5" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-      </file>
-      <file name="student-classes.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\models\student-classes.ts">
-        <metrics statements="8" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-      </file>
-      <file name="student.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\models\student.ts">
-        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="14" count="8" type="stmt"/>
-        <line num="15" count="8" type="stmt"/>
-        <line num="16" count="8" type="stmt"/>
-        <line num="17" count="8" type="stmt"/>
-      </file>
     </package>
     <package name="routers">
-      <metrics statements="160" coveredstatements="136" conditionals="12" coveredconditionals="12" methods="50" coveredmethods="41"/>
+      <metrics statements="195" coveredstatements="163" conditionals="12" coveredconditionals="12" methods="62" coveredmethods="50"/>
       <file name="course-router.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\routers\course-router.ts">
-        <metrics statements="64" coveredstatements="56" conditionals="4" coveredconditionals="4" methods="21" coveredmethods="18"/>
+        <metrics statements="81" coveredstatements="73" conditionals="4" coveredconditionals="4" methods="27" coveredmethods="24"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -213,44 +43,61 @@
         <line num="42" count="1" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
         <line num="57" count="0" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="63" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
         <line num="64" count="3" type="stmt"/>
-        <line num="65" count="3" type="stmt"/>
-        <line num="66" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="69" count="1" type="stmt"/>
-        <line num="71" count="2" type="stmt"/>
+        <line num="65" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
         <line num="73" count="1" type="stmt"/>
         <line num="74" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="78" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="2" type="stmt"/>
         <line num="79" count="2" type="stmt"/>
-        <line num="80" count="2" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
         <line num="81" count="1" type="stmt"/>
         <line num="82" count="1" type="stmt"/>
-        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
         <line num="86" count="1" type="stmt"/>
-        <line num="87" count="1" type="stmt"/>
-        <line num="91" count="1" type="stmt"/>
-        <line num="92" count="2" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="91" count="2" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
         <line num="93" count="1" type="stmt"/>
-        <line num="94" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
         <line num="96" count="1" type="stmt"/>
-        <line num="97" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="100" count="2" type="stmt"/>
+        <line num="101" count="2" type="stmt"/>
+        <line num="102" count="1" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="106" count="1" type="stmt"/>
+        <line num="107" count="1" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="111" count="1" type="stmt"/>
+        <line num="112" count="2" type="stmt"/>
+        <line num="113" count="2" type="stmt"/>
+        <line num="114" count="1" type="stmt"/>
+        <line num="115" count="1" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
+        <line num="119" count="1" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
       </file>
       <file name="instructor-router.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\routers\instructor-router.ts">
-        <metrics statements="47" coveredstatements="39" conditionals="4" coveredconditionals="4" methods="15" coveredmethods="12"/>
+        <metrics statements="56" coveredstatements="40" conditionals="4" coveredconditionals="4" methods="18" coveredmethods="12"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
@@ -298,9 +145,18 @@
         <line num="73" count="2" type="stmt"/>
         <line num="74" count="2" type="stmt"/>
         <line num="75" count="2" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
       </file>
       <file name="student-router.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\routers\student-router.ts">
-        <metrics statements="49" coveredstatements="41" conditionals="4" coveredconditionals="4" methods="14" coveredmethods="11"/>
+        <metrics statements="58" coveredstatements="50" conditionals="4" coveredconditionals="4" methods="17" coveredmethods="14"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -350,12 +206,21 @@
         <line num="96" count="1" type="stmt"/>
         <line num="98" count="2" type="stmt"/>
         <line num="100" count="3" type="stmt"/>
+        <line num="102" count="1" type="stmt"/>
+        <line num="103" count="2" type="stmt"/>
+        <line num="104" count="2" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
+        <line num="106" count="1" type="stmt"/>
+        <line num="107" count="1" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="110" count="1" type="stmt"/>
+        <line num="111" count="1" type="stmt"/>
       </file>
     </package>
     <package name="services">
-      <metrics statements="64" coveredstatements="54" conditionals="23" coveredconditionals="23" methods="21" coveredmethods="11"/>
+      <metrics statements="75" coveredstatements="58" conditionals="28" coveredconditionals="23" methods="26" coveredmethods="11"/>
       <file name="course-services.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\services\course-services.ts">
-        <metrics statements="26" coveredstatements="22" conditionals="11" coveredconditionals="11" methods="9" coveredmethods="5"/>
+        <metrics statements="33" coveredstatements="24" conditionals="16" coveredconditionals="11" methods="12" coveredmethods="5"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
@@ -382,9 +247,16 @@
         <line num="41" count="3" type="stmt"/>
         <line num="44" count="2" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
       </file>
       <file name="instructor-services.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\services\instructor-services.ts">
-        <metrics statements="19" coveredstatements="16" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="3"/>
+        <metrics statements="21" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
@@ -404,9 +276,11 @@
         <line num="29" count="1" type="stmt"/>
         <line num="31" count="2" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
       </file>
       <file name="student-services.ts" path="C:\Users\RClay\eclipse-workspace\ryan-clayton-p0\src\services\student-services.ts">
-        <metrics statements="19" coveredstatements="16" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="3"/>
+        <metrics statements="21" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
@@ -426,6 +300,8 @@
         <line num="28" count="1" type="stmt"/>
         <line num="30" count="2" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
       </file>
     </package>
   </project>

@@ -30,3 +30,6 @@ export function patchStudent(student:any):Promise<Student>{
 export function getClassesByStudent(id :number):Promise<Classes[]>{
     return studentDao.getClassesbyStudent(id);
 }
+export function delStudent(id:number):Promise<Student>{
+    return studentDao.delStudent(id);
+}

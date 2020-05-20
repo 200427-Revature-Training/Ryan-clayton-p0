@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { db } from "./db";
 import { Instructor, InstructorRow } from "../models/instructor";
 import { InstructorClasses,InstructorClassesRow } from "../models/instructor-classes";
@@ -32,12 +33,17 @@ export function patchInstructor(instructor:any):Promise<Instructor>{
 
 export function getClassesbyInstructor(id:number):Promise<InstructorClasses[]>{
     const sql = 
-    `select courses.course_name, count(*) as Number_of_students
+    `select courses.course_name, count(*) as Number_of_instructors
     from classes inner join courses on classes.cid = courses.cid 
     inner join instructors on instructors.iid = classes.iid 
-    inner join students on students.sid = classes.sid
+    inner join instructors on instructors.sid = classes.sid
     where instructors.iid = $1 group by courses.cid;`;
     return db.query<InstructorClassesRow>(sql, [id]).then(result => {
         return result.rows.map(row => InstructorClasses.from(row));
     });
+}
+export function delInstructor(id:number):Promise<Instructor>{
+    const sql = `delete from instructors where iid = $1 returning *`;
+    return db.query<InstructorRow>(sql,[id])
+        .then(result => result.rows.map(r=> Instructor.from(r))[0]);
 }

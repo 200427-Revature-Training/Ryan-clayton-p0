@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.98% </span>
+                <span class="strong">71.43% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>39/47</span>
+                <span class='fraction'>40/56</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>12/15</span>
+                <span class='fraction'>12/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.98% </span>
+                <span class="strong">71.43% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>39/47</span>
+                <span class='fraction'>40/56</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -134,7 +134,18 @@
 <a name='L75'></a><a href='#L75'>75</a>
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -210,6 +221,17 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import express from 'express';
 import * as instructorService from '../services/instructor-services';
@@ -232,11 +254,11 @@ instructorRouter.get('', (request, response , next) =&gt; {
 &nbsp;
 instructorRouter.get('/:id',(request, response ,next)=&gt;{
     const id = +request.params.id;
-    instructorService.getInstructorByID(id).then(student =&gt;{
-        if (!student){// student id doesnt exist in DB
+    instructorService.getInstructorByID(id).then(instructor =&gt;{
+        if (!instructor){// instructor id doesnt exist in DB
             response.sendStatus(404);
-        }else{// returns the student
-            response.json(student);
+        }else{// returns the instructor
+            response.json(instructor);
         }
         next();
     }).catch(err=&gt;{
@@ -275,11 +297,11 @@ instructorRouter.patch('',<span class="fstat-no" title="function not covered" >(
 &nbsp;
 instructorRouter.get('/classes/:id',(request, response ,next)=&gt;{
     const id = +request.params.id;
-    instructorService.getClassesByInstructor(id).then(student =&gt;{
-        if (!student){// instructor id doesnt exist in DB
+    instructorService.getClassesByInstructor(id).then(instructor =&gt;{
+        if (!instructor){// instructor id doesnt exist in DB
             response.sendStatus(404);
         }else{// returns the instructor
-            response.json(student);
+            response.json(instructor);
         }
         next();
     }).catch(err=&gt;{
@@ -288,14 +310,25 @@ instructorRouter.get('/classes/:id',(request, response ,next)=&gt;{
         next();
     });
 });
-&nbsp;</pre></td></tr></table></pre>
+instructorRouter.delete('/:id',<span class="fstat-no" title="function not covered" >(r</span>equest,response,next)=&gt;{
+    const id = <span class="cstat-no" title="statement not covered" >+request.params.id;</span>
+<span class="cstat-no" title="statement not covered" >    instructorService.delInstructor(id).then(<span class="fstat-no" title="function not covered" >newInstructor </span>=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >        response.status(201);</span>
+<span class="cstat-no" title="statement not covered" >        response.json(newInstructor);</span>
+<span class="cstat-no" title="statement not covered" >        next();</span>
+    }).catch(<span class="fstat-no" title="function not covered" >err=</span>&gt;{
+<span class="cstat-no" title="statement not covered" >        console.log(err);</span>
+<span class="cstat-no" title="statement not covered" >        response.sendStatus(500);</span>
+<span class="cstat-no" title="statement not covered" >        next();</span>
+    });
+});</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue May 19 2020 19:44:25 GMT-0400 (Eastern Daylight Time)
+                at Wed May 20 2020 10:56:44 GMT-0400 (Eastern Daylight Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

@@ -44,3 +44,14 @@ export function addClass(classroom:any):Promise<Classroom>{
 export function getClassList():Promise<ClassList[]>{
     return CourseDao.getAllClasses();
 }
+export function delCourse(id:number):Promise<Course>{
+    return CourseDao.delCourse(id);
+}
+export function delClass(classroom:any):Promise<Classroom>{
+    if(classroom.sid&&classroom.iid&&classroom.cid){
+        return CourseDao.delClass(classroom.sid,classroom.iid,classroom.cid);
+    }else{
+        console.log("invalid Course");
+        return new Promise((resolve, reject)=> reject(422));
+    }
+}
